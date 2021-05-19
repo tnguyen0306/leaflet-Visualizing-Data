@@ -13,3 +13,13 @@ var myMap = L.map("map", {
     id: "mapbox/streets-v11",
     accessToken: API_KEY
   }).addTo(myMap);
+
+
+
+// Grab the data with d3
+var url ="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
+
+d3.json(url).then(function(response) {
+
+
+});
