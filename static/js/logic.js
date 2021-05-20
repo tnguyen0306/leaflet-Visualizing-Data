@@ -53,4 +53,28 @@ d3.json(url).then(function(response) {
           }
     }).addTo(myMap);
 
+    // Create legend of earthquake magnitudes
+    var legend = L.control({position: 'bottomright'});
+
+    legend.onAdd = function(map) {
+        var div = L.DomUtil.create('div','legend');
+        var depth = [-10,10,30,50,70,90];
+        var labels = [];
+
+            // Loop through data to push the label of each info
+            for (var i=0; i < depth.length; i++){
+                if (i===5) {
+                    labels.push("<tr><td style = 'text-align: center; padding:3px; margin:3px; background-color:" + colorScale(depth[i]) + "'>" + depth[i] + '+' + "</td></tr>");
+                } 
+                else {
+                    labels.push("<tr><td style = 'text-align: center; padding:3px; margin:3px; background-color:" + colorScale(depth[i]) + "'>" + depth[i] + '-' + depth[i+1] + "</td></tr>");
+                }
+            }
+        div.innerHTML += "<table style ='background-color: white; border-radius: 4px'><th'></th>" + labels.join("") + "</table>";
+        
+        return div;    
+    };
+    // Add the legend to myMap
+    legend.addTo(myMap);
+
 });
