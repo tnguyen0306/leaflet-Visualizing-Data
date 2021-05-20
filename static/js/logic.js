@@ -16,12 +16,12 @@ var myMap = L.map("map", {
 
 // Create colorScale() function to get the color depending on the earthquake's magnitude
 function colorScale(x) {
-    return  x > 5 ? "#ff5f65" :
-    x > 4 ? "#fca35d" :
-    x > 3 ? "#fdb72a" :
-    x > 2 ? "#f7db11" :
-    x > 1 ? "#dcf400" :
-    x > 0 ? "#a3f600" :
+    return  x > 90 ? "#ff5f65" :
+    x > 70 ? "#fca35d" :
+    x > 50 ? "#fdb72a" :
+    x > 30 ? "#f7db11" :
+    x > 10 ? "#dcf400" :
+    x > -10 ? "#a3f600" :
         "#FFEDA0"
   };
 
@@ -33,7 +33,7 @@ d3.json(url).then(function(response) {
     function markerOptions(feature) {
         var markerOption = {
             radius: +feature.properties.mag*3,
-            fillColor: colorScale(feature.properties.mag),
+            fillColor: colorScale(feature.geometry.coordinates[2]),
             color: "darkgreen",
             weight: 1,
             stroke: true,
@@ -44,12 +44,12 @@ d3.json(url).then(function(response) {
     };
   
     // Add the earthquake data to the map
-    var geojson = L.geoJSON(response, {
+    L.geoJSON(response, {
         pointToLayer: function (feature, latlng) {
             return L.circleMarker(latlng, markerOptions(feature));
         },
         onEachFeature: function(feature, layer) {
-            layer.bindPopup("<h4>" + feature.properties.place + "</h4>"+ "<hr> <h4>Magnitude: "+ +feature.properties.mag + "</h4>");
+            layer.bindPopup("<h4>" + feature.properties.place + "</h4>"+ "<hr> <h4>Magnitude: "+ +feature.properties.mag + "</h4>" + "<r> <h4>Depth: "+ +feature.geometry.coordinates[2] + "</h4>");
           }
     }).addTo(myMap);
 
