@@ -32,7 +32,7 @@ d3.json(url).then(function(response) {
     // Create a GeoJSON layer
     function markerOptions(feature) {
         var markerOption = {
-            radius: +feature.properties.mag*2,
+            radius: +feature.properties.mag*3,
             fillColor: colorScale(feature.properties.mag),
             color: "darkgreen",
             weight: 1,
