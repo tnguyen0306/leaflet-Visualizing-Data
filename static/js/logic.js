@@ -14,7 +14,16 @@ var myMap = L.map("map", {
     accessToken: API_KEY
   }).addTo(myMap);
 
-
+// Create colorScale() function to get the color depending on the earthquake's magnitude
+function colorScale(x) {
+    return  x > 5 ? "#ff5f65" :
+    x > 4 ? "#fca35d" :
+    x > 3 ? "#fdb72a" :
+    x > 2 ? "#f7db11" :
+    x > 1 ? "#dcf400" :
+    x > 0 ? "#a3f600" :
+        "#FFEDA0"
+  };
 
 // Grab the data with d3
 var url ="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
@@ -24,6 +33,7 @@ d3.json(url).then(function(response) {
     function markerOptions(feature) {
         var markerOption = {
             radius: +feature.properties.mag*2,
+            fillColor: colorScale(feature.properties.mag),
             color: "darkgreen",
             weight: 1,
             stroke: true,
