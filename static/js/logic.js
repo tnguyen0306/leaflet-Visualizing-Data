@@ -20,6 +20,27 @@ var myMap = L.map("map", {
 var url ="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
 
 d3.json(url).then(function(response) {
-
+    // Create a GeoJSON layer
+    function markerOptions(feature) {
+        var markerOption = {
+            radius: +feature.properties.mag*2,
+            color: "darkgreen",
+            weight: 1,
+            stroke: true,
+            opacity: 1,
+            fillOpacity: 0.8
+      }
+      return markerOption;
+    };
+  
+    // Add the earthquake data to the map
+    var geojson = L.geoJSON(response, {
+        pointToLayer: function (feature, latlng) {
+            return L.circleMarker(latlng, markerOptions(feature));
+        },
+        onEachFeature: function(feature, layer) {
+            layer.bindPopup("<h4>" + feature.properties.place + "</h4>"+ "<hr> <h4>Magnitude: "+ +feature.properties.mag + "</h4>");
+          }
+    }).addTo(myMap);
 
 });
