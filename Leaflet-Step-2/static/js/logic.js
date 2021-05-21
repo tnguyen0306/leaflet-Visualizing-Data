@@ -50,8 +50,8 @@ function createMap(earthquakes, faultLines) {
 
     // Create myMap with tile layers
     var myMap = L.map("map", {
-        center: [40.52, -100.67],
-        zoom: 4.5,
+        center: [40.52, -115.67],
+        zoom: 5,
         layers : [satellite, outdoors, grayscale]
     });
 
