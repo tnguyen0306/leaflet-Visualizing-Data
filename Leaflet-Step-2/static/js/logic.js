@@ -58,7 +58,7 @@ function createMap(earthquakes, faultLines) {
     // Add tile layers, overlay maps to map; collapse on opening page
     myMap.addLayer(earthquakes);
     myMap.addLayer(faultLines);
-    L.control.layers(baseMaps, overlayMaps).addTo(myMap);
+    L.control.layers(baseMaps, overlayMaps, {collapsed: true}).addTo(myMap);
 
     // Call createLegend() to create legend
     createLegend(myMap)
@@ -152,7 +152,6 @@ function createLegend(myMap) {
         
     legend2.onAdd = function(map) {
         var div2 = L.DomUtil.create('div','info legend');
-        div2.innerHTML +=  "<ul class='legend'><li>Fault Lines</li></ul>"
         return div2;
     };
 
@@ -163,7 +162,7 @@ function createLegend(myMap) {
             legend.addTo(myMap);
         } 
         else if (eventLayer.name === "Fault Lines") {
-            yMap.addControl(legend2);
+            myMap.addControl(legend2);
             legend2.addTo(myMap)
         }
     });
