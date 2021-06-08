@@ -28,6 +28,9 @@ Your first task is to visualize an earthquake data set.
 
    * Your visualization should look something like the map above.
 
+Visit [this website](https://tnguyen0306.github.io/leaflet-Visualizing-Data/Leaflet-Step-1/) for the final result of Step 1.
+
+![result step 1](images/level1.png)
 - - -
 
 ### Level 2: More Data (Optional)
@@ -42,26 +45,9 @@ In this step we are going to..
 
 * Add layer controls to our map.
 
-- - -
+Visit [this website](https://tnguyen0306.github.io/leaflet-Visualizing-Data/Leaflet-Step-2/) for the final result of step 2.
 
-### Assessment
-
-Your final product will be assessed on the following metrics:
-
-* Completion of assigned tasks
-
-* Visual appearance
-
-* Professionalism
-
-* Ensure your repository has regular commits (i.e. 20+ commits) and a thorough README.md file
-
-**Good luck!**
-
-## Rubric
-
-[Unit 17 Rubric - Leaflet Homework - Visualizing Data with Leaflet](https://docs.google.com/document/d/1h1iH67V7UKOitS6K3nRrnOYbx-3KwEDC6ZWzpzDKxLc/edit?usp=sharing)
-
+![result step 2](images/level2.png)
 - - -
 
 © 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
