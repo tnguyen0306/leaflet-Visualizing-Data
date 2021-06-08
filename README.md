@@ -28,6 +28,9 @@ Your first task is to visualize an earthquake data set.
 
    * Your visualization should look something like the map above.
 
+Visit [this website](https://tnguyen0306.github.io/JavaScript-and-DOM-Manipulation/UFO-level-1/) for the final result of Level 1.
+
+![result level 1](images/level1.png)
 - - -
 
 ### Level 2: More Data (Optional)
@@ -42,6 +45,9 @@ In this step we are going to..
 
 * Add layer controls to our map.
 
+Visit [this website](https://tnguyen0306.github.io/JavaScript-and-DOM-Manipulation/UFO-level-2/) for the final result of Level 2.
+
+![result level 2](images/level2.png)
 - - -
 
 ### Assessment
